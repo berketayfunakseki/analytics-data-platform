@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Syntax-check Python sources
+        run: python -m py_compile airflow/dags/orders_pipeline.py spark/jobs/transform_orders.py
+
+      - name: Verify dbt project files
+        run: test -f dbt/dbt_project.yml && test -f dbt/models/staging/stg_orders.sql && test -f dbt/models/marts/fct_daily_sales.sql
