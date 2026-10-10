@@ -1,5 +1,7 @@
 # Analytics Data Platform
 
+[![CI](https://github.com/berketayfunakseki/analytics-data-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/berketayfunakseki/analytics-data-platform/actions/workflows/ci.yml)
+
 A portfolio data-engineering project that demonstrates an end-to-end batch analytics pipeline using **Apache Airflow**, **PySpark / Apache Spark**, **dbt**, **PostgreSQL**, **Parquet**, **Docker**, and **GitHub Actions CI**.
 
 ## Architecture
